@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "twit": "^2.2.11"
+    "twit": "^2.2.11",
+    "xml2js": "^0.4.19"
   }
 }
