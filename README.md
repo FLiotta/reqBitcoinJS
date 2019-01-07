@@ -2,6 +2,8 @@
 
 reqBitcoinJS is a twitter bot which tweet bitcoin's price every half hour and other cryptocurrencies.
 
+Bitcoin's price is fetched from www.coindesk.com and the other currencies are fetched from www.cryptocompare.com.
+
 ![alt text](display.PNG)
 
 ## Install
