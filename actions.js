@@ -8,7 +8,7 @@ var T = new twit({
 	access_token_secret: config.access_token_secret,
 });
 
-const tweet_price = () => {
+const tweetBTC = () => {
 	axios.get('https://api.coindesk.com/v1/bpi/currentprice.json')
 	.then((res) => {
 		const status = `
@@ -16,16 +16,16 @@ const tweet_price = () => {
 			\n
 			#Bitcoin #BTC 🥴
 			`;
-		console.log(status)
+		console.log("BTC Tweeted")
 		T.post('statuses/update', { status }, function(err, data, response) {
 			if(err)
-				console.log(err);
+				console.log("err");
 		})
 	})
 	.catch(e => console.log(e));	
 }
 
-const tweet_otherCryptos = () => {
+const tweetCryptos = () => {
 	axios.get('https://min-api.cryptocompare.com/data/pricemulti?fsyms=LTC,ETH,XLM,XRP,BCH&tsyms=USD,EUR', { 
 		headers: {
 			apiKey: config.api_key
@@ -40,7 +40,11 @@ ${new Date().toISOString().replace("T", ' ').replace(/\..+/, '')} \n
 #Stellar: $${res.data.XLM.USD} | €${res.data.XLM.EUR} \n
 
 #Cryptocurrencies prices provided by @CryptoCompare 🥴`
-			console.log(status);
+			console.log("Other cryptos tweeted");
+			T.post('statuses/update', { status }, function(err, data, response) {
+				if(err)
+					console.log(err);
+			})
 		})
 }
 
